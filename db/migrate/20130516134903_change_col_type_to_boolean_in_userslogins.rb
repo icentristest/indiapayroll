@@ -1,5 +1,5 @@
 class ChangeColTypeToBooleanInUserslogins < ActiveRecord::Migration
   def change 
-    change_column(:user_logins, :is_admin, :boolean)
+    add_column :config_tables, :medical_allowance, :decimal
   end
 end

@@ -19,4 +19,3 @@
 //= javascript_include_tag "application"
 
 
-

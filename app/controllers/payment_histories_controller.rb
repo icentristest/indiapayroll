@@ -303,6 +303,7 @@ class PaymentHistoriesController < ApplicationController
       payment_history = PaymentHistory.new()
       payment_history.emp_id = employee.emp_id
       payment_history.period_id = @period_id 
+      pay=PayPeriod.where("period_id = ?" ,@period_id)
       payment_history.full_name = params[:monthlypayconfirm][:"#{employee.emp_id}_full_name"]
       payment_history.hra = params[:monthlypayconfirm][:"#{employee.emp_id}_hra"]
       payment_history.basic = params[:monthlypayconfirm][:"#{employee.emp_id}_basic"]
@@ -316,7 +317,9 @@ class PaymentHistoriesController < ApplicationController
       payment_history.loss_of_hours = params[:monthlypayconfirm][:"#{employee.emp_id}_sick"]
       payment_history.gross_monthly =params[:monthlypayconfirm][:"#{employee.emp_id}_gross_monthly"]
       payment_history.period_type="M"
-      payment_history.save
+      if payment_history.save
+        PayPeriod.update(pay.id ,:status=>false)
+      end
       end
     end
     

@@ -1,5 +1,5 @@
 class AddMedicalAllowanceToConfigTable < ActiveRecord::Migration
   def change
-    add_column :config_tables, :medical_allowance, :decimal
+    add_column :pay_periods, :status, :boolean
   end
 end

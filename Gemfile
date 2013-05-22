@@ -20,7 +20,7 @@ gem 'bootswatch-rails'
 gem 'json'
 gem 'prawn', :git => "git://github.com/prawnpdf/prawn.git", :branch => "master"
 gem "prawnto_2", :require => "prawnto"
-
+gem "simple_form"  
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

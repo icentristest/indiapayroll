@@ -55,7 +55,7 @@ class EmployeesController < ApplicationController
       user.user_name=@employee.emp_id
       user.password= ([*('A'..'Z'),*('0'..'9')]-%w(0 1 I O)).sample(8).join
       user.is_admin='n'
-      user.status=true
+      @employee.status=true
       if @employee.save && user.save 
         UserMailer.emp_registration(@employee,user).deliver
         format.html { redirect_to @employee, :notice=> 'Employee was successfully created.' }
