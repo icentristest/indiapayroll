@@ -3,10 +3,7 @@ module SessionsHelper
  
  def sign_in(user)
     cookies.permanent[:remember_token] = user.id
-    self.current_user = user
-  end
-  def current_user=(user)
-    @current_user = user
+
   end
   def login_as(user)
     cookies.permanent[:login_as] =user
@@ -33,14 +30,19 @@ module SessionsHelper
     @login_as=='admin'
   end
   def is_admin?
-      @current_user.is_admin==true
+
+     if current_user && current_user.is_admin=="y"
+       return true
+     else 
+       return false
+      end
   end
   def signed_in?
     !current_user.nil?
   end
   
   def sign_out
-    self.current_user = nil
+    #self.current_user = nil
     cookies.delete(:remember_token)
   end
 

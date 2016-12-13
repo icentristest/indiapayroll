@@ -5,6 +5,8 @@ class SessionsController < ApplicationController
   skip_before_filter :authenticate, :only => [:create,:new,:accept]
   protect_from_forgery
   
+  def index
+  end
 
   def new
   end

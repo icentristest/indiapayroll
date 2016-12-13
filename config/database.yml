@@ -17,8 +17,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *common
-  database: payroll_test
+  database: payroll_development
 
 production:
   <<: *common
-  database: payroll_production
+  database: payroll_development
